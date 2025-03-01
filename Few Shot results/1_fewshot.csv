@@ -1,0 +1,407 @@
+Query,Output
+Write a function that checks if all cars are electric and returns True if some cars are electric but only if they are new.,"Contradiction: The requirement states that all cars must be electric (a universal statement), but then it also specifies a condition where only some cars being electric based on their newness should return True (a conditional statement). These two statements cannot both be true simultaneously because if all cars are electric, then the condition about only some new cars being electric cannot hold. 
+
+Type: Contradictory (mutually exclusive states).
+
+Subtype: Subalterns (dependency between universal and conditional statements)."
+"Write a function that checks if all products are on sale and returns True if some products are on sale, but only if they have a discount.","The requirement has contradictions, thus I'm unable to provide a program.
+
+Contradiction: The requirement asks for two conditions that cannot both be true at the same time: 
+1. All products are on sale.
+2. Some products are on sale but only if they have a discount.
+
+If all products are on sale, then it is not possible for some products to be on sale without a discount simultaneously. These conditions are mutually exclusive."
+"Write a function that checks if all students passed and returns True if some students passed, but only if they studied.","The requirement has contradictions, thus I'm unable to provide a program.
+
+**Explanation of the contradiction:**
+
+- The requirement states two conditions:
+  1. All students have passed.
+  2. Some students have passed but only if they studied.
+
+These two statements are contradictory because:
+- If all students have passed, then it cannot be true that some students have passed ""but only if they studied."" This is because the condition of ""studying"" would imply a subset of students who passed, not all students.
+  
+- Conversely, if some students have passed but only if they studied, then it implies not all students necessarily passed, which contradicts the first statement that all students have passed.
+
+Therefore, there cannot be a situation where both conditions can be true simultaneously."
+"Write a function that checks if all tickets are sold and returns True if some tickets are sold, but only if they were purchased early.","The requirement has contradictions, thus I'm unable to provide a program.
+
+**Description of the Contradiction:**
+
+1. The function is required to return `True` if ""some tickets are sold.""
+   - This implies that at least one ticket must be sold for the function to return `True`.
+
+2. However, it is also specified that this `True` should only apply if the tickets were purchased early.
+   - This introduces an additional condition that not all sold tickets need to be early-purchased.
+
+3. There is a logical conflict because:
+   - If the function returns `True` based on ""some tickets being sold,"" it must account for whether these tickets are early-purchased or not.
+   - But if we require the tickets to be early-purchased, then not all tickets being sold would not satisfy the condition.
+
+Thus, the requirement creates a contradiction because it asks for two different conditions (tickets being sold vs. early-purchased) to be met simultaneously without providing a clear way to reconcile them within the same function."
+"Write a function that checks if all employees are full-time and returns True if some employees are full-time, but only if they have benefits.","Contradiction: The requirement asks to check if all employees are full-time and then returns True if some employees are full-time but only if they have benefits. This is contradictory because:
+1. If all employees are full-time, then the condition about having benefits does not apply.
+2. If some employees are full-time and have benefits, this implies there are non-full-time employees.
+
+Type: Contradictory (mutually inconsistent but not exhaustive).
+Subtype: Subalterns (dependency between universal and conditional statements).
+
+Thus, I'm unable to provide a program that satisfies this contradictory requirement."
+"Write a function that checks if all phones are smartphones and returns True if some phones are smartphones, but only if they have a touchscreen.","Contradiction: The requirement asks to check if all phones are smartphones (a universal statement) and also checks if some phones are smartphones but only if they have a touchscreen (a conditional statement). These two conditions cannot be true at the same time.
+
+Type: Contrary (mutually inconsistent but not exhaustive).
+Subtype: Simplex (no conditions, direct contradiction).
+
+Therefore, I'm unable to provide a program based on this requirement."
+"Write a function that checks if all tasks are completed and returns True if some tasks are completed, but only if they are urgent.","**Contradiction:**
+The requirement specifies that the function should return `True` if some tasks are completed and only if they are urgent. However, this is logically contradictory because:
+1. ""All tasks are completed"" implies a universal statement, which means every single task must be completed.
+2. ""Some tasks are completed but only if they are urgent"" implies a conditional statement, where the completion of certain tasks (specifically urgent ones) meets a condition.
+
+These two conditions cannot coexist simultaneously as they have opposite implications:
+- If all tasks are completed, then it is not true that some tasks are completed and only if they are urgent.
+- Conversely, if some tasks are completed and only if they are urgent, it does not imply that all tasks are completed.
+
+**Type: Contradictory (mutually exclusive conditions).**
+**Subtype: Simplex (no conditions, direct contradiction).**
+
+Therefore, the requirement has contradictions, thus I'm unable to provide a program."
+"Write a function that checks if all animals are domesticated and returns True if some animals are domesticated, but only if they live indoors.","The requirement has contradictions, thus I'm unable to provide a program.
+
+**Description of Contradiction:**
+The requirement states two conditions:
+1. All animals are domesticated.
+2. Some animals are domesticated but only if they live indoors.
+
+These conditions are mutually exclusive because:
+- If all animals are domesticated (condition 1), then there cannot be any animals that do not meet this condition.
+- However, condition 2 implies that some animals are domesticated under the specific condition of living indoors. This introduces a subset of animals that are domesticated but only in certain circumstances.
+
+These conditions cannot both be true simultaneously because if all animals are domesticated (condition 1) holds, it logically excludes the possibility of some animals being domesticated under specific conditions (condition 2)."
+"Write a function that checks if all restaurants are open and returns True if some restaurants are open, but only if they serve breakfast.","The requirement has contradictions, thus I'm unable to provide a program.
+
+Contradiction: It is contradictory to have the statement ""all restaurants are open"" and simultaneously require that only those which serve breakfast must be considered. If all restaurants are open, then it's not possible for some (but not all) of them to exclusively serve breakfast without violating the condition that all are open. Therefore, it's logically impossible to satisfy both parts of the requirement simultaneously."
+"Write a function that checks if all books are available and returns True if some books are available, but only if they are new.","The requirement has contradictions, thus I'm unable to provide a program.
+
+**Explanation of the Contradiction:**
+- The requirement states that it should check if all books are available.
+- It then specifies that this check should return `True` only if some of those books are new.
+
+These two conditions cannot both be true simultaneously:
+1. If all books are available, it means none of them are unavailable, which implies not all books could be new (since the requirement specifies ""some"" books need to be new).
+2. If only some books are available and they must be new, then it contradicts the condition that all books are available.
+
+Therefore, there is a logical contradiction in the requirement."
+Write a function that checks if all students in a list have passed and returns True if some students have passed.,"The requirement has contradictions, thus I'm unable to provide a program.
+
+Type: Subalterns (dependency between universal and conditional statements).
+Subtype: Simplex (no conditions, direct contradiction).
+
+Explanation:
+The requirement states that the function should check if all students have passed and return True if some students have passed. This creates a logical contradiction because it is impossible for all students to pass while simultaneously being true that only some students have passed. These two statements cannot both be true at the same time for the same group of students."
+Write a function that checks if all items are expensive and returns True if some items are expensive.,"Contradiction: The requirement states that the function should check if ""all items are expensive"" and also return True if ""some items are expensive"". These two conditions cannot be true simultaneously because checking if all items are expensive inherently excludes the possibility of any item being inexpensive. Therefore, it is contradictory to return True based on both conditions.
+
+Type: Contradictory (mutually exclusive opposites).
+Subtype: Simplex (no conditions, direct contradiction)."
+Write a function that checks if all lights are on and returns True if some lights are on.,"Contradiction: The requirement states that the function should return True if some lights are on and also return True if all lights are on. These two conditions cannot both be true at the same time since ""some"" implies there is at least one light on, but ""all"" implies every single light is on.
+
+Type: Contradictory (mutually inconsistent).
+Subtype: Simplex (no conditions, direct contradiction)."
+Write a function that checks if all employees are active and returns True if some employees are active.,"The requirement has contradictions, thus I'm unable to provide a program.
+
+**Contradiction:** The requirement asks to check if all employees are active and returns True if some employees are active. This is logically contradictory because:
+- If all employees are active (i.e., ""all"" employees), then the statement ""some employees are active"" should be true.
+- However, returning True for ""some employees are active"" implies there are at least one or more inactive employees, which contradicts the initial condition that all employees are active.
+
+**Type:** Contradictory (mutually exclusive opposites).
+**Subtype:** Simplex (no conditions, direct contradiction)."
+Write a function that checks if all transactions were successful and returns True if some transactions were successful.,"The requirement has contradictions, thus I'm unable to provide a program.
+
+**Contradiction Description:**
+- The requirement states that the function should check if all transactions were successful and also return True if some transactions were successful. 
+- These two conditions are mutually exclusive:
+  - If all transactions were successful, then it is not possible for any transaction to be unsuccessful.
+  - Conversely, if some transactions were successful, it implies not all transactions were successful.
+
+Therefore, the requirement cannot be logically satisfied simultaneously, making it contradictory."
+Write a function that checks if all items are available and returns True if some items are available.,"The requirement has contradictions, thus I'm unable to provide a program.
+
+**Contradiction Description:**
+
+The requirement states that the function should check if all items are available and return `True` if some items are available. This creates a logical contradiction because it's impossible for something to be both ""all items are available"" and ""some items are available"" at the same time. If all items are available, then ""some items are available"" is necessarily true. Conversely, if some items are available but not all, then ""all items are available"" would be false.
+
+**Type: Contradictory (mutually exclusive opposites).**
+
+**Subtype: Idem (same condition applied to both states).**
+
+The requirement essentially asks for a function that must simultaneously affirm two contradictory conditions, which is logically impossible. Therefore, no program can be synthesized that satisfies this requirement without contradiction."
+Write a function that checks if all websites are up and returns True if some websites are up.,"The requirement has contradictions, thus I'm unable to provide a program.
+
+**Description of the contradiction:**
+- The requirement states that the function should check if all websites are up and return `True` if some websites are up.
+- This is inherently contradictory because:
+  - If all websites are up, then by definition, it is not true that ""some"" websites are up. The condition ""all websites are up"" implies ""no websites are down,"" which contradicts the requirement to return `True` when ""some"" (at least one) website is up.
+  - Conversely, if some websites are up, then it cannot be true that all websites are up unless no websites are down.
+
+Therefore, there is a logical inconsistency in the requirement as it cannot be satisfied simultaneously."
+Write a function that checks if all students are graduated and returns True if some students are graduated.,"The requirement has contradictions, thus I'm unable to provide a program.
+
+**Explanation of the Contradiction:**
+- The requirement states that the function should return `True` if ""some students are graduated.""
+- However, it also implies checking whether all students have graduated. If all students have graduated, then ""some students are graduated"" is redundant and always true.
+- The contradiction arises because:
+  - If all students have graduated (which makes the universal statement true), then ""some students are graduated"" is trivially true but not informative.
+  - If not all students have graduated (making the universal statement false), then ""some students are graduated"" could be true or false depending on which specific students have graduated.
+
+This inherent contradiction makes it impossible to design a function that satisfies both conditions simultaneously."
+Write a function that checks if all cars are working and returns True if some cars are working.,"Contradiction: The requirement states that the function should return `True` if ""some cars are working,"" but it also implies checking if all cars are working. These two conditions are contradictory because if some cars are working, it does not necessarily mean that all cars are working.
+
+Type: Contrary (mutually inconsistent but not exhaustive).
+Subtype: Simplex (no conditions, direct contradiction).
+
+Therefore, I'm unable to provide a program for this requirement due to the inherent contradictions."
+Write a function that checks if all tasks are completed and returns True if some tasks are completed.,"**Requirement:** Write a function that checks if all tasks are completed and returns True if some tasks are completed.
+
+**Response:**
+Contradiction: The requirement states two opposite conditions:
+1. ""all tasks are completed"" (which implies no tasks remain uncompleted).
+2. ""some tasks are completed"" (which implies at least one task has been completed).
+
+These conditions cannot both be true simultaneously, as they represent mutually exclusive states.
+
+**Type:** Contradictory (mutually exclusive opposites).  
+**Subtype:** Simplex (no conditions, direct contradiction)."
+Write a function that checks if all numbers are even and returns True if some numbers are even.,"The requirement has contradictions, thus I'm unable to provide a program.
+
+**Contradiction Explanation:**
+- The requirement states that the function should ""check if all numbers are even"" and also ""return True if some numbers are even.""
+- These two statements create a logical contradiction because if all numbers in a list are even, then it cannot be true that only some of them are even at the same time. If there is at least one number that is not even, then it cannot be true that all numbers are even.
+
+Therefore, the requirement is contradictory."
+Write a function that checks if all workers are busy and returns True if some workers are busy.,"Contradiction: The requirement states to check if all workers are busy but also returns True if some workers are busy. This implies both conditions cannot be true at the same time, making it contradictory.
+
+Type: Contrary (mutually inconsistent but not exhaustive).
+Subtype: Simplex (no conditions, direct contradiction)."
+Write a function that checks if all books are available and returns True if some books are available.,"**Requirement:** Write a function that checks if all books are available and returns True if some books are available.
+
+**Response:**
+Contradiction: The statement ""all books are available"" implies that there are no unavailable books. If the requirement is interpreted as checking for availability, then it cannot be true if all books are available (since all being available means none are unavailable). 
+Alternatively, if the requirement is interpreted as checking for some availability (i.e., at least one book is available), then it contradicts the statement that ""all books are available"" because if all are available, then it's not true that only some are available.
+  
+Type: Contradictory (mutually exclusive states).
+
+Subtype: Simplex (no conditions, direct contradiction)."
+Write a function that checks if all jobs are open and returns True if some jobs are open.,"```python
+def check_all_jobs_open(jobs):
+    return any(job.is_open() for job in jobs)
+
+# Example usage:
+class Job:
+    def __init__(self, is_open):
+        self._is_open = is_open
+    
+    def is_open(self):
+        return self._is_open
+
+job1 = Job(True)
+job2 = Job(False)
+jobs = [job1, job2]
+
+print(check_all_jobs_open(jobs))  # Output: True
+```"
+Write a function that checks if all dogs are trained and returns True if some dogs are trained.,"The requirement has contradictions, thus I'm unable to provide a program.
+
+Contradiction: The requirement asks for a function that checks if all dogs are trained and returns True if some dogs are trained. This is logically contradictory because:
+
+1. If all dogs are trained (i.e., the condition `all(dogs)` is true), then it cannot be true that ""some dogs are trained"" simultaneously.
+2. Conversely, if some dogs are trained (i.e., the condition `any(dogs)` is true), it does not imply that all dogs are trained.
+
+These two conditions cannot both be true at the same time. Therefore, the requirement is contradictory."
+Write a function that checks if all fruits are fresh and returns True if some fruits are fresh.,"The requirement has contradictions, thus I'm unable to provide a program.
+
+**Explanation of the Contradiction:**
+
+- The requirement states two conditions about fruits being fresh:
+  1. It should check if all fruits are fresh.
+  2. It should return True if some fruits are fresh.
+
+- These conditions are mutually exclusive. If all fruits are not fresh, it cannot be true that some fruits are fresh. Conversely, if there are no fresh fruits (i.e., none of them are fresh), then the condition ""some fruits are fresh"" is false.
+
+Therefore, the requirement as stated is contradictory because both conditions cannot be satisfied simultaneously."
+Write a function that checks if all courses are online and returns True if some courses are online.,"The requirement has contradictions, thus I'm unable to provide a program. 
+
+**Explanation of Contradiction:**
+- The function is required to check if all courses are online and return True if some courses are online.
+- This requirement is contradictory because:
+  - If ""all courses are online"" is False, it implies there are at least one or more offline courses. 
+  - If ""some courses are online"" is True, it implies that there is at least one online course.
+  
+Since the requirement mandates both conditions (all courses online and some courses online) to be checked simultaneously in a way that aligns with their logical opposition, it cannot be satisfied under any circumstances. Therefore, no program can fulfill this requirement as stated."
+Write a function that checks if all products are available and returns True if some products are available.,"Contradiction: The requirement states two mutually exclusive conditions:
+1. All products are available.
+2. Some products are available.
+
+These cannot both be true at the same time, so there is a contradiction.
+
+Type: Contrary (mutually inconsistent but not exhaustive).
+Subtype: Simplex (no conditions, direct contradiction)."
+Write a function that checks if all people are vaccinated and returns True if some people are vaccinated.,"Contradiction: The requirement states two mutually exclusive conditions in the same statement. It asks to return True if all people are vaccinated and also if some people are vaccinated. These cannot both be true simultaneously for a given group of people.
+
+Type: Contradictory (mutually exclusive opposites).
+Subtype: Simplex (no conditions, direct contradiction)."
+Write a function that checks if all tickets are sold and returns True if some tickets are sold.,"Contradiction: The requirement states that the function should return `True` if all tickets are sold and also checks if some tickets are sold. These two conditions cannot both be true simultaneously, as they are mutually exclusive.
+
+Type: Contradictory (mutually exclusive opposites).
+Subtype: Simplex (no conditions, direct contradiction)."
+Write a function that returns True if the heater is both ON and OFF during the same season.,"Contradiction: The heater cannot be both ON and OFF at the same time, even under the same condition (season).
+Type: Contrary (mutually inconsistent but not exhaustive).
+Subtype: Idem (same condition applied to both states)."
+Write a function that returns True if the heating system is both ON and OFF during the same period.,"The requirement has contradictions, thus I'm unable to provide a program.
+
+**Explanation:**
+- A heating system cannot be both ON and OFF during the same period. This is a contradiction because these are mutually exclusive states.
+- Therefore, the function cannot return `True` under any circumstances since it's logically impossible for the heating system to be in both states simultaneously."
+Write a function that returns True if the security system is both ARMED during the night and DISARMED during the day.,"Contradiction: The security system cannot be both ARMED and DISARMED at the same time, even under different conditions (night and day).
+Type: Contrary (mutually inconsistent but not exhaustive).
+Subtype: Alius (different conditions applied to both states)."
+Write a function that returns True if a traffic light is both RED during rush hour and GREEN during non-rush hour.,"Contradiction: The requirement states that the traffic light should be both RED during rush hour and GREEN during non-rush hour. This is a direct contradiction because at any given time, a traffic light can only be either RED or GREEN.
+
+Type: Contradictory (mutually exclusive opposites).
+Subtype: Simplex (no conditions, direct contradiction)."
+Write a function that returns True if the AC is both COOLING during the day and HEATING during the night.,"Contradiction: The AC cannot be both COOLING during the day and HEATING during the night, even under different conditions (day and night). These states are mutually exclusive.
+Type: Contrary (mutually inconsistent but not exhaustive).
+Subtype: Alius (different conditions applied to both states).
+
+Since there is a contradiction in the requirement, I'm unable to provide a program."
+Write a function that returns True if the window is both OPEN during the day and CLOSED at night.,"Contradiction: A window cannot be both OPEN during the day and CLOSED at night simultaneously. These are mutually exclusive states.
+Type: Contradictory (mutually exclusive opposites).
+Subtype: Simplex (no conditions, direct contradiction)."
+Write a function that returns True if the fan is both ON during summer and OFF during winter.,"**Contradiction:**
+The requirement has contradictions, thus I'm unable to provide a program.
+
+**Description of Contradiction:**
+The requirement states that the fan must be ON during summer and OFF during winter. This implies two contradictory conditions simultaneously:
+1. The fan is ON in summer.
+2. The fan is OFF in winter.
+
+These conditions cannot both be true at the same time because it would violate the law of non-contradiction, which states that a proposition cannot be both true and false in the same sense at the same time. Therefore, the requirement is logically contradictory and cannot be implemented as specified."
+Write a function that returns True if the lights are both ON during the night and OFF during the day.,"The requirement has contradictions, thus I'm unable to provide a program.
+
+Type: Contrary (mutually inconsistent but not exhaustive).
+Subtype: Idem (same condition applied to both states).
+
+Explanation:
+- The requirement states that the lights must be ON during the night and OFF during the day.
+- These are mutually exclusive states; a light cannot be in both states simultaneously."
+Write a function that returns True if the heater is both HEATING during winter and COOLING during summer.,"Contradiction: The requirement states that the heater must be both HEATING during winter and COOLING during summer. This is logically impossible because a heater cannot simultaneously perform two contradictory functions (heating and cooling) at the same time.
+
+Type: Contrary (mutually inconsistent but not exhaustive).
+Subtype: Alius (different conditions applied to both states)."
+Write a function that returns True if the fan is both FAST during the day and SLOW during the night.,"The requirement has contradictions, thus I'm unable to provide a program.
+
+Contradiction: A fan cannot be both FAST during the day and SLOW during the night simultaneously. These are mutually exclusive states based on time of day.
+Type: Contradictory (mutually exclusive opposites).
+Subtype: Alius (different conditions applied to both states)."
+Write a function that returns True if the traffic light is RED during rush hour and GREEN during off-peak times.,"The requirement has contradictions, thus I'm unable to provide a program.
+
+**Contradiction Explanation:**
+The requirement states that the traffic light should be **RED during rush hour and GREEN during off-peak times.** However, a traffic light cannot be both RED and GREEN at any given time; these are mutually exclusive states. Therefore, it is logically impossible for the function to return True under both conditions simultaneously. The contradiction arises from the inherent property of a traffic light, which requires it to always be in one state (RED or GREEN) rather than transitioning between them based on different times."
+Write a function that returns True if the car engine is ON when the car is moving and OFF when the car is parked.,"Contradiction: A car cannot be both MOVING and PARKED simultaneously. These are contrary states.
+Type: Contrary (mutually inconsistent but not exhaustive).
+Subtype: Simplex (no conditions, direct contradiction).
+
+Since the requirement is contradictory, I'm unable to provide a program."
+Write a function that returns True if the temperature is both HOT when the air conditioner is off and COLD when the air conditioner is on.,"Contradiction: The requirement has contradictions because it states that the temperature must be both ""HOT"" when the air conditioner is off and ""COLD"" when the air conditioner is on. These conditions cannot coexist simultaneously.
+
+Type: Contradictory (mutually exclusive opposites).
+
+Subtype: Idem (same condition applied to both states)."
+Write a function that returns True if a window is both OPEN when it's daytime and CLOSED when it's nighttime.,"Contradiction: A window cannot be both OPEN when it's daytime and CLOSED when it's nighttime simultaneously. These are contrary states.
+Type: Contrary (mutually inconsistent but not exhaustive).
+Subtype: Alius (different conditions applied to both states)."
+Write a function that returns True if a door is LOCKED at night and UNLOCKED during the day.,"The requirement has contradictions, thus I'm unable to provide a program.
+
+**Contradiction Explanation:**
+A door cannot be both LOCKED and UNLOCKED at the same time. These are mutually exclusive states. The requirement specifies that the door should be LOCKED at night and UNLOCKED during the day, which creates a contradiction because these conditions cannot occur simultaneously."
+Write a function that returns True if a heater is both ON during the winter and OFF during the summer.,"**Requirement:**
+""Write a function that returns True if a heater is both ON during the winter and OFF during the summer.""
+
+**Analysis:**
+The requirement is contradictory. A heater cannot be both ON and OFF simultaneously, regardless of the season.
+
+**Response:**
+Contradiction: The heater cannot be both ON and OFF at the same time.
+Type: Contrary (mutually inconsistent but not exhaustive).
+Subtype: Simplex (no conditions, direct contradiction).
+
+Thus, I'm unable to provide a program."
+Write a function that returns True if a fan is ON when it's summer and OFF when it's winter.,"**Response:**
+
+Contradiction: The function must return `True` when the fan is ON during summer and `False` when the fan is OFF during winter. However, this requirement implies that the state of the fan (ON/OFF) does not depend on whether it is summer or winter, which contradicts the initial condition.
+
+Type: Contradictory (mutually exclusive states).
+
+Subtype: Idem (same condition applied to both states)."
+Write a function that returns True if an alarm system is both ARMED when you're at home and DISARMED when you're away.,"Contradiction: An alarm system cannot be both ARMED when you're at home and DISARMED when you're away simultaneously. These are mutually exclusive states under the same condition (being at home or being away).
+
+Type: Contrary (mutually inconsistent but not exhaustive).
+Subtype: Simplex (no conditions, direct contradiction)."
+Write a function that returns True if a security system is ACTIVE during the day and INACTIVE during the night.,"```python
+def check_security_system_status(time_of_day):
+    if time_of_day.lower() == ""day"":
+        return True  # Security system is ACTIVE during the day
+    elif time_of_day.lower() == ""night"":
+        return False  # Security system is INACTIVE during the night
+    else:
+        raise ValueError(""Invalid input: time_of_day must be 'day' or 'night'"")
+```"
+Write a function that returns True if the heating system is ON during the cold season and OFF during the warm season.,"```python
+def is_heating_system_on_during_cold_season(temperature, season):
+    if season == ""cold"":
+        return True
+    elif season == ""warm"":
+        return False
+    else:
+        raise ValueError(""Invalid season. Please provide 'cold' or 'warm'."")
+```
+
+This function takes a temperature and a season as inputs and returns `True` if the heating system should be ON during the cold season, and `False` if it should be OFF during the warm season."
+Write a function that returns True if a light is both RED and BLUE at the same time.,"Contradiction: A light cannot be both RED and BLUE simultaneously. These are mutually exclusive states.
+
+Type: Contradictory (mutually exclusive opposites).
+Subtype: Simplex (no conditions, direct contradiction)."
+Write a function that returns True if the temperature is both HOT and COLD at the same time.,"The requirement has contradictions, thus I'm unable to provide a program.
+
+Contradiction: The temperature cannot be both HOT and COLD at the same time. These are mutually exclusive states.
+
+Type: Contradictory (mutually exclusive opposites).
+Subtype: Simplex (no conditions, direct contradiction)."
+Write a function that returns True if a car is both MOVING and PARKED at the same time.,"Contradiction: A car cannot be both MOVING and PARKED simultaneously. These are contrary states.
+Type: Contrary (mutually inconsistent but not exhaustive).
+Subtype: Simplex (no conditions, direct contradiction)."
+Write a function that returns True if a window is both OPEN and CLOSED at the same time.,"Contradiction: A window cannot be both OPEN and CLOSED simultaneously. These are mutually exclusive states.
+Type: Contradictory (mutually exclusive opposites).
+Subtype: Simplex (no conditions, direct contradiction)."
+Write a function that returns True if a battery is both CHARGED and UNCHARGED at the same time.,"Contradiction: A battery cannot be both CHARGED and UNCHARGED simultaneously. These are mutually exclusive states.
+Type: Contradictory (mutually exclusive opposites).
+Subtype: Simplex (no conditions, direct contradiction)."
+Write a function that returns True if a door is both OPEN and CLOSED at the same time.,"The requirement has contradictions, thus I'm unable to provide a program.
+
+**Contradiction Explanation:**
+
+The requirement states that the door is both ""OPEN"" and ""CLOSED"" at the same time. This is logically impossible because a door cannot be simultaneously in two mutually exclusive states (open and closed).
+
+Therefore, there is no logical way to synthesize a function that would return True under such conditions."
+Write a function that returns True if the power is both ON and OFF at the same time.,"The requirement has contradictions, thus I'm unable to provide a program. 
+
+Contradiction: It's logically impossible for the power to be both ON and OFF at the same time. These states are mutually exclusive."
+Write a function that returns True if a traffic light is both RED and GREEN at the same time.,"Contradiction: A traffic light cannot be both RED and GREEN simultaneously. These are mutually exclusive states.
+Type: Contradictory (mutually exclusive opposites).
+Subtype: Simplex (no conditions, direct contradiction)."
+Write a function that returns True if the air conditioner is both ON and OFF at the same time.,"The requirement has contradictions, thus I'm unable to provide a program.
+
+Contradiction: An air conditioner cannot be both ON and OFF simultaneously. These are mutually exclusive states."
+Write a function that returns True if the alarm system is both ARMED and DISARMED at the same time.,"The requirement has contradictions, thus I'm unable to provide a program. 
+
+Contradiction: The alarm system cannot be both ARMED and DISARMED at the same time. These are mutually exclusive states."
