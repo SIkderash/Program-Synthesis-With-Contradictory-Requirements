@@ -7,20 +7,7 @@ import seaborn as sns
 # Create the "Result diagrams" folder if it doesn't exist
 os.makedirs("Result diagrams", exist_ok=True)
 
-# Data
-data = {
-    "Model": ["qwen2.5-coder:3b", "qwen2.5-coder:latest", "qwen2.5-coder:14b", "qwen2.5:3b", "qwen2.5:7b", "qwen2.5:14b", "codellama:13b", "llama2:latest"],
-    "Zero_Shot_0s": [89, 92, 91, 87, 86, 81, 91, 87],
-    "Zero_Shot_1s": [0, 0, 0, 0, 0, 0, 0, 0],
-    "Zero_Shot_2s": [3, 0, 1, 5, 6, 11, 1, 5],
-    "Few_Shot_0s": [2, 1, 0, 1, 0, 0, 49, 47],
-    "Few_Shot_1s": [61, 65, 61, 25, 12, 75, 16, 13],
-    "Few_Shot_2s": [29, 26, 31, 66, 80, 17, 27, 32],
-    "Zero_Shot_Accuracy": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
-    "Few_Shot_Accuracy": [0.663, 0.707, 0.663, 0.272, 0.130, 0.815, 0.174, 0.141]
-}
-
-df = pd.DataFrame(data)
+df = pd.read_csv("consolidated_results.csv")
 
 # Plot for Zero Shot
 plt.figure(figsize=(12, 6))
