@@ -4,7 +4,7 @@ from langchain_ollama import OllamaLLM
 
 models = ['qwen2.5-coder:3b', 'qwen2.5-coder:latest', 'qwen2.5-coder:14b', 'qwen2.5:3b', 'qwen2.5:7b', 'qwen2.5:14b', 'codellama:13b', 'llama2:latest']
 
-isZeroShot = True
+isZeroShot = False
 run_status_file_name = "run_status.json"
 
 if isZeroShot == False:
@@ -113,7 +113,7 @@ for cur_model in models:
         continue
 
     model = OllamaLLM(model=cur_model)
-    df = pd.read_csv("input1.csv")
+    df = pd.read_csv("input.csv")
     output_df = pd.DataFrame(columns=['Query', 'Output'])
     
     for _, row in df.iterrows():
