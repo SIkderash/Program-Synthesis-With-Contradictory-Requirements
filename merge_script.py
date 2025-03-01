@@ -35,6 +35,3 @@ for file_name in os.listdir(zero_shot_folder):
 
         # Print confirmation
         print(f"Merged file saved: {merged_file_path}")
-
-# Print the first few rows of the last merged DataFrame for verification
-print(merged_df.head())
