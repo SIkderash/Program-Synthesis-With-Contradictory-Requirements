@@ -1,3 +1,9 @@
 {
-
+    "qwen2.5-coder:3b": 1,
+    "qwen2.5-coder:latest": 1,
+    "qwen2.5-coder:14b": 1,
+    "qwen2.5:3b": 1,
+    "qwen2.5:7b": 1,
+    "qwen2.5:14b": 1,
+    "codellama:13b": 1
 }

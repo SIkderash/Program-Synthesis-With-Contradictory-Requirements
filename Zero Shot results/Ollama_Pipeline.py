@@ -4,7 +4,7 @@ from langchain_ollama import OllamaLLM
 
 models = ['qwen2.5-coder:3b', 'qwen2.5-coder:latest', 'qwen2.5-coder:14b', 'qwen2.5:3b', 'qwen2.5:7b', 'qwen2.5:14b', 'codellama:13b']
 
-isZeroShot = False
+isZeroShot = True
 run_status_file_name = "run_status.json"
 
 if isZeroShot == False:
@@ -118,14 +118,20 @@ for cur_model in models:
     
     for _, row in df.iterrows():
         query = row['Query']
-        final_query = addSysPrompt(query) 
+        final_query = query
+        if isZeroShot == False:
+            final_query = addSysPrompt(query) 
         output = model.invoke(final_query)
         print(output)
         
         new_row = pd.DataFrame({'Query': [query], 'Output': [output]})
         output_df = pd.concat([output_df, new_row], ignore_index=True)
 
-    output_df.to_csv(f"{index}_fewshot.csv", index=False)
+    output_file = f"{index}.csv"
+    if isZeroShot == False:
+        output_file = f"{index}_fewshot.csv"
+
+    output_df.to_csv(output_file, index=False)
 
     run_status[cur_model] = 1  
     with open(run_status_file_name, "w") as file:

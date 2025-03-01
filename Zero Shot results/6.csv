@@ -1,115 +1,110 @@
 Query,Output
 Write a function that checks if all cars are electric and returns True if some cars are electric but only if they are new.,"```
-def check_electric(cars):
+def is_all_electric(cars):
+    return all(car.is_new and car.is_electric for car in cars)
+```
+This function uses a list comprehension to iterate over the `cars` list, checking if each `car` has both the `is_new` and `is_electric` attributes set to `True`. If all of these conditions are met, the function returns `True`, otherwise it returns `False`.
+
+You can also use a for loop instead of a list comprehension:
+```
+def is_all_electric(cars):
     for car in cars:
-        if not car['is_new'] or not car['is_electric']:
+        if not (car.is_new and car.is_electric):
             return False
     return True
-```
-This function iterates over the list of cars and checks each one to see if it is new and electric. If any car is found that is not new or does not have an electric engine, the function returns `False`. If all cars are new and electric, the function returns `True`."
-"Write a function that checks if all products are on sale and returns True if some products are on sale, but only if they have a discount.","```
+```"
+"Write a function that checks if all products are on sale and returns True if some products are on sale, but only if they have a discount.","
 def check_sale(products):
     for product in products:
-        if ""sale"" not in product[""attributes""] or ""discount"" not in product[""attributes""]:
+        if 'discount' in product:
+            return True
+    return False"
+"Write a function that checks if all students passed and returns True if some students passed, but only if they studied.","```
+def check_students(students):
+    return any(student['passed'] for student in students) and all(student['studied'] for student in students)
+```
+This function uses the `any` built-in function to check if at least one student passed, and the `all` built-in function to check if all students studied. The `and` operator is used to combine these two conditions.
+
+Here's an example of how you can use this function:
+```
+students = [
+    {'name': 'Alice', 'passed': True, 'studied': True},
+    {'name': 'Bob', 'passed': False, 'studied': False},
+    {'name': 'Charlie', 'passed': True, 'studied': False}
+]
+
+print(check_students(students)) # Output: False
+```
+In this example, the function returns `False` because not all students studied and at least one student failed."
+"Write a function that checks if all tickets are sold and returns True if some tickets are sold, but only if they were purchased early.","```
+def check_tickets(tickets):
+    return any(ticket[""purchased_early""] for ticket in tickets)
+```
+This function uses a list comprehension to iterate over the `tickets` dictionary and returns `True` if any of the tickets have the `""purchased_early""` key set to `True`.
+
+Here's an example usage:
+```
+>>> check_tickets([{""ticket_id"": 1, ""purchased_early"": True}, {""ticket_id"": 2, ""purchased_early"": False}])
+True
+```"
+"Write a function that checks if all employees are full-time and returns True if some employees are full-time, but only if they have benefits.","
+def check_full_time(employees):
+    for employee in employees:
+        if employee[""isFullTime""] == False:
+            return False
+        elif ""benefits"" not in employee or employee[""benefits""] == None:
+            return False
+    
+    return True"
+"Write a function that checks if all phones are smartphones and returns True if some phones are smartphones, but only if they have a touchscreen.","```
+def is_smartphone(phones):
+    for phone in phones:
+        if 'touchscreen' not in phone['features']:
             return False
     return True
 ```
-This function iterates through the list of products and checks if each product has an attribute called ""sale"" and another attribute called ""discount"". If any product is found that does not have both attributes, the function returns `False`. Otherwise, it returns `True` at the end of the loop.
-
-For example:
-```
-products = [
-    {
-        ""name"": ""Product 1"",
-        ""attributes"": {
-            ""sale"": True,
-            ""discount"": 20
-        }
-    },
-    {
-        ""name"": ""Product 2"",
-        ""attributes"": {
-            ""sale"": False,
-            ""discount"": 0
-        }
-    },
-    {
-        ""name"": ""Product 3"",
-        ""attributes"": {
-            ""sale"": True,
-            ""discount"": 15
-        }
-    }
-]
-
-print(check_sale(products)) # Output: True
-```"
-"Write a function that checks if all students passed and returns True if some students passed, but only if they studied.","```
-def check_passed(students):
-    return any(student[""passed""] for student in students) and all(student[""studied""] for student in students)
-```
-This function uses the `any()` and `all()` functions to check if any of the students passed and if all of the students studied. The `any()` function returns `True` if any element in the iterable is true, so it will return `True` if at least one student passed. The `all()` function returns `True` if all elements in the iterable are true, so it will return `True` only if all students studied and at least one passed.
-
-For example:
-```
-students = [
-    {""name"": ""Alice"", ""passed"": True, ""studied"": True},
-    {""name"": ""Bob"", ""passed"": False, ""studied"": False},
-    {""name"": ""Charlie"", ""passed"": True, ""studied"": False}
-]
-
-print(check_passed(students))  # Output: False
-```
-In this example, the function will return `False` because not all students studied and at least one student did not pass."
-"Write a function that checks if all tickets are sold and returns True if some tickets are sold, but only if they were purchased early.","```
-def check_tickets(early_tickets, regular_tickets):
-    return any(early_tickets) and not all(regular_tickets)
+This function checks if all phones have the feature ""touchscreen"" in their dictionary. If a phone doesn't have this feature, it returns `False`. If all phones have this feature, it returns `True`."
+"Write a function that checks if all tasks are completed and returns True if some tasks are completed, but only if they are urgent.","
+def check_tasks(tasks):
+    return any(task[""urgency""] == ""urgent"" and task[""completed""] for task in tasks)"
+"Write a function that checks if all animals are domesticated and returns True if some animals are domesticated, but only if they live indoors.","```
+def check_domestication(animals):
+    return any(animal[""indoor""] for animal in animals)
 ```
 Explanation:
 
-* `any(early_tickets)` checks if there are any early tickets sold. If this condition is true, then the function returns True.
-* `not all(regular_tickets)` checks if all regular tickets were purchased at the door. If this condition is false, then some regular tickets were purchased early and the function returns True.
+The `any()` function takes a generator expression as an argument. In this case, the generator expression is `(animal[""indoor""] for animal in animals)`. This generates a sequence of booleans, where each boolean indicates whether the corresponding animal lives indoors. The `any()` function returns `True` if any of these booleans are `True`, and `False` otherwise.
 
-Note that this function assumes that the input arrays contain only boolean values (True or False)."
-"Write a function that checks if all employees are full-time and returns True if some employees are full-time, but only if they have benefits.","
-def check_employees(employees):
-    for employee in employees:
-        if employee[""type""] == ""full-time"" and employee[""benefits""]:
-            return True
-    return False"
-"Write a function that checks if all phones are smartphones and returns True if some phones are smartphones, but only if they have a touchscreen.","```
-def is_smartphone(phones):
-    return any(phone['touchscreen'] for phone in phones) and all(phone['type'] == 'smartphone' for phone in phones)
-```
-This function checks if all phones have a touchscreen, and then checks if they are all smartphones. If both conditions are met, it returns `True`. Otherwise, it returns `False`."
-"Write a function that checks if all tasks are completed and returns True if some tasks are completed, but only if they are urgent.","```
-def check_completed(tasks):
-    return any(task[""status""] == ""completed"" for task in tasks) and all(task[""urgency""] == ""urgent"" for task in tasks)
-```
-This function uses the `any` built-in function to check if any of the tasks have a status of ""completed"", and the `all` built-in function to check if all of the tasks are urgent. If both conditions are met, the function returns `True`, otherwise it returns `False`.
+The `check_domestication()` function takes a list of dictionaries as an argument, where each dictionary represents an animal and has the following keys: ""indoor"" (a boolean indicating whether the animal lives indoors), ""domesticated"" (a boolean indicating whether the animal is domesticated). The function returns `True` if any of the animals are both indoor and domesticated, and `False` otherwise.
 
-You can test this function with the following code:
+For example, if we call the function with the following list of dictionaries:
 ```
-tasks = [
-    {""name"": ""Task 1"", ""status"": ""completed"", ""urgency"": ""urgent""},
-    {""name"": ""Task 2"", ""status"": ""in progress"", ""urgency"": ""not urgent""},
-    {""name"": ""Task 3"", ""status"": ""not started"", ""urgency"": ""urgent""}
+animals = [
+    {""indoor"": True, ""domesticated"": True},
+    {""indoor"": False, ""domesticated"": False},
+    {""indoor"": True, ""domesticated"": False}
 ]
-
-print(check_completed(tasks)) # should print True
-```"
-"Write a function that checks if all animals are domesticated and returns True if some animals are domesticated, but only if they live indoors.","
-def check_animals(my_list):
-    return any(animal['isDomestic'] for animal in my_list) and all(animal['livesIndoors'] for animal in my_list)"
-"Write a function that checks if all restaurants are open and returns True if some restaurants are open, but only if they serve breakfast.","
-def check_restaurant_open(restaurants):
+```
+The function will return `True`, because one of the animals (the first one) is both indoor and domesticated. If we call the function with a different list of dictionaries, for example:
+```
+animals = [
+    {""indoor"": True, ""domesticated"": False},
+    {""indoor"": False, ""domesticated"": False},
+    {""indoor"": True, ""domesticated"": False}
+]
+```
+The function will return `False`, because none of the animals are both indoor and domesticated."
+"Write a function that checks if all restaurants are open and returns True if some restaurants are open, but only if they serve breakfast.","```
+def is_open(restaurants):
     for restaurant in restaurants:
-        if ""breakfast"" not in restaurant[""menu""]:
-            return False
-    return True"
+        if ""breakfast"" in restaurant[""services""]:
+            return True
+    return False
+```
+This function checks if the `services` key in each restaurant's dictionary contains the string ""breakfast"". If it does, it returns `True`. If it doesn't find any restaurants that serve breakfast, it will return `False`."
 "Write a function that checks if all books are available and returns True if some books are available, but only if they are new.","
 def check_books(books):
-    return any(book[""available""] for book in books) and all(book[""new""] for book in books)"
+    return any(book['available'] for book in books) and all(book['new'] for book in books)"
 Write a function that checks if all students in a list have passed and returns True if some students have passed.,"[PYTHON]
 def check_passed(student_list):
     for student in student_list:
@@ -121,16 +116,28 @@ def check_passed(student_list):
 # Test case 1:
 assert check_passed([{""name"": ""Alice"", ""grade"": 80}, {""name"": ""Bob"", ""grade"": 90}]) == True
 # Test case 2:
-assert check_passed([{""name"": ""Charlie"", ""grade"": 50}, {""name"": ""David"", ""grade"": 60}]) == False
+assert check_passed([{""name"": ""Alice"", ""grade"": 50}, {""name"": ""Bob"", ""grade"": 60}]) == False
 # Test case 3:
-assert check_passed([{""name"": ""Eve"", ""grade"": 80}, {""name"": ""Fred"", ""grade"": 70}]) == True
+assert check_passed([{""name"": ""Alice"", ""grade"": 70}, {""name"": ""Bob"", ""grade"": 80}, {""name"": ""Charlie"", ""grade"": 90}]) == True
 [/TESTS]
 "
-Write a function that checks if all items are expensive and returns True if some items are expensive.,"```
-def is_expensive(items):
-    return any(item[""price""] > 10 for item in items)
-```
-This function uses the `any()` built-in function to check if any of the items in the list have a price greater than 10. If at least one item has a price greater than 10, then the function will return `True`. Otherwise, it will return `False`."
+Write a function that checks if all items are expensive and returns True if some items are expensive.,"[PYTHON]
+def check_expensive_items(my_list):
+    return any(item[""price""] > 50 for item in my_list)
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert check_expensive_items([{""name"": ""Item1"", ""price"": 10}, {""name"": ""Item2"", ""price"": 20}, {""name"": ""Item3"", ""price"": 30}]) == True
+# Test case 2:
+assert check_expensive_items([{""name"": ""Item1"", ""price"": 10}, {""name"": ""Item2"", ""price"": 20}, {""name"": ""Item3"", ""price"": 30}, {""name"": ""Item4"", ""price"": 40}]) == True
+# Test case 3:
+assert check_expensive_items([{""name"": ""Item1"", ""price"": 10}, {""name"": ""Item2"", ""price"": 20}, {""name"": ""Item3"", ""price"": 30}, {""name"": ""Item4"", ""price"": 40}, {""name"": ""Item5"", ""price"": 50}]) == True
+# Test case 4:
+assert check_expensive_items([{""name"": ""Item1"", ""price"": 10}, {""name"": ""Item2"", ""price"": 20}, {""name"": ""Item3"", ""price"": 30}, {""name"": ""Item4"", ""price"": 40}, {""name"": ""Item5"", ""price"": 50}, {""name"": ""Item6"", ""price"": 60}]) == True
+# Test case 5:
+assert check_expensive_items([{""name"": ""Item1"", ""price"": 10}, {""name"": ""Item2"", ""price"": 20}, {""name"": ""Item3"", ""price"": 30}, {""name"": ""Item4"", ""price"": 40}, {""name"": ""Item5"", ""price"": 50}, {""name"": ""Item6"", ""price"": 60}, {""name"": ""Item7"", ""price"": 70}]) == True
+[/TESTS]
+"
 Write a function that checks if all lights are on and returns True if some lights are on.,"[PYTHON]
 def check_lights(my_list):
     return not all(my_list)
@@ -148,83 +155,88 @@ assert check_lights([False, True, False]) == True
 assert check_lights([True, True, False]) == True
 [/TESTS]
 "
-Write a function that checks if all employees are active and returns True if some employees are active.,"
-def is_active(employees):
-    return any(employee[""isActive""] for employee in employees)
-
-This function uses the `any()` function to check if any of the employees are active, by using a generator expression to extract the ""isActive"" field from each employee. If any of them are True, the function returns True."
+Write a function that checks if all employees are active and returns True if some employees are active.,"[PYTHON]
+def check_active_employees(my_list):
+    return not all(employee[""status""] == ""Active"" for employee in my_list)
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert check_active_employees([{""name"": ""John"", ""age"": 30, ""status"": ""Active""}, {""name"": ""Jane"", ""age"": 25, ""status"": ""Inactive""}]) == False
+# Test case 2:
+assert check_active_employees([{""name"": ""John"", ""age"": 30, ""status"": ""Active""}, {""name"": ""Jane"", ""age"": 25, ""status"": ""Active""}]) == True
+[/TESTS]
+"
 Write a function that checks if all transactions were successful and returns True if some transactions were successful.,"```
-def check_transactions(transaction_list):
-    for transaction in transaction_list:
-        if not transaction[""successful""]:
-            return False
-    return True
+def check_transactions(transactions):
+    return any(transaction[""success""] for transaction in transactions)
 ```
-This function iterates through the list of transactions and checks if any of them have a successful property set to false. If it finds one, it returns False immediately. If it reaches the end of the list without finding an unsuccessful transaction, it returns True."
-Write a function that checks if all items are available and returns True if some items are available.,"[PYTHON]
-def is_available(my_list):
-    for item in my_list:
-        if item == ""apple"":
-            return True
-    return False
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert is_available([""apple"", ""banana"", ""orange""]) == True
-# Test case 2:
-assert is_available([""banana"", ""orange"", ""apple""]) == True
-# Test case 3:
-assert is_available([""orange"", ""apple"", ""banana""]) == True
-# Test case 4:
-assert is_available([""apple"", ""banana"", ""carrot""]) == True
-# Test case 5:
-assert is_available([""banana"", ""carrot"", ""apple""]) == True
-[/TESTS]
-"
-Write a function that checks if all websites are up and returns True if some websites are up.,"[PYTHON]
-def check_websites(my_list):
-    import requests
+This function uses the `any()` function to check if any of the transactions in the list have a `""success""` key with a truthy value. If at least one transaction has a successful status, the function will return `True`.
 
-    for website in my_list:
-        response = requests.get(website)
-        if response.status_code == 200:
-            return True
-    return False
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert check_websites([""https://www.google.com"", ""https://www.facebook.com""]) == True
-# Test case 2:
-assert check_websites([""https://www.google.com"", ""https://www.youtube.com""]) == True
-# Test case 3:
-assert check_websites([""https://www.google.com"", ""https://www.twitter.com""]) == True
-# Test case 4:
-assert check_websites([""https://www.google.com"", ""https://www.linkedin.com""]) == True
-# Test case 5:
-assert check_websites([""https://www.google.com"", ""https://www.instagram.com""]) == True
-[/TESTS]
-"
-Write a function that checks if all students are graduated and returns True if some students are graduated.,"
-def check_graduation(students):
-    return any(student[""graduated""] for student in students)"
-Write a function that checks if all cars are working and returns True if some cars are working.,"```
-def check_cars(car_list):
-    for car in car_list:
-        if car[""working""]:
-            return True
-    return False
+Here's an example usage:
 ```
-This function takes a list of dictionaries, each representing a car, as an argument. It then iterates over the list and checks if any of the cars are ""working"" (i.e., have the key ""working"" set to `True`). If it finds at least one working car, it returns `True`. Otherwise, it returns `False`.
-
-You can test this function by calling it with a list of dictionaries representing different cars:
-```
-cars = [
-    {""make"": ""Toyota"", ""model"": ""Camry"", ""year"": 2015, ""working"": True},
-    {""make"": ""Ford"", ""model"": ""Mustang"", ""year"": 2017, ""working"": False},
-    {""make"": ""Honda"", ""model"": ""Civic"", ""year"": 2018, ""working"": True}
+transactions = [
+    {""id"": 1, ""amount"": 100, ""success"": True},
+    {""id"": 2, ""amount"": 50, ""success"": False},
+    {""id"": 3, ""amount"": 25, ""success"": True}
 ]
-print(check_cars(cars)) # Should print 'True'
+
+print(check_transactions(transactions)) # Output: True
 ```"
+Write a function that checks if all items are available and returns True if some items are available.,"[PYTHON]
+def check_availability(my_list):
+    return any(my_list)
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert check_availability([]) == False
+# Test case 2:
+assert check_availability([1, 2, 3]) == True
+# Test case 3:
+assert check_availability([1, 2, 0]) == True
+[/TESTS]
+"
+Write a function that checks if all websites are up and returns True if some websites are up.,"
+def check_websites(websites):
+    for website in websites:
+        try:
+            response = requests.get(website)
+            if response.status_code == 200:
+                return True
+        except requests.exceptions.RequestException:
+            pass
+    return False"
+Write a function that checks if all students are graduated and returns True if some students are graduated.,"```
+def is_graduated(students):
+    return any(student[""isGraduated""] for student in students)
+```
+Explanation:
+
+* The `any()` function returns `True` if any of the elements in the iterable are truthy.
+* In this case, we use a list comprehension to generate a list of booleans, where each boolean represents whether or not the corresponding student is graduated.
+* We then pass this list to the `any()` function, which returns `True` if any of the elements are truthy (i.e., if there are any students who have been graduated).
+
+For example:
+```
+students = [
+    {""name"": ""Alice"", ""isGraduated"": True},
+    {""name"": ""Bob"", ""isGraduated"": False},
+    {""name"": ""Charlie"", ""isGraduated"": True}
+]
+
+print(is_graduated(students)) # Output: True
+```"
+Write a function that checks if all cars are working and returns True if some cars are working.,"```
+def check_cars(cars):
+    return any(car.is_working() for car in cars)
+```
+This function uses the `any` built-in function to check if at least one car is working. It iterates over the `cars` list and checks if each car's `is_working` method returns `True`. If any car is working, `any` will return `True`, otherwise it will return `False`.
+
+You can also use a list comprehension to filter out the non-working cars:
+```
+def check_cars(cars):
+    return len([car for car in cars if car.is_working()]) > 0
+```
+This function uses a list comprehension to create a new list of only the working cars, and then checks if the length of this list is greater than zero. If there are any working cars, the length of the list will be greater than zero, so `True` will be returned."
 Write a function that checks if all tasks are completed and returns True if some tasks are completed.,"[PYTHON]
 def check_tasks_completed(tasks):
     for task in tasks:
@@ -242,226 +254,225 @@ assert check_tasks_completed([{""id"": 1, ""title"": ""Task 1"", ""completed"": 
 [/TESTS]
 "
 Write a function that checks if all numbers are even and returns True if some numbers are even.,"[PYTHON]
-def check_even(my_list):
+def is_even(my_list):
     return all(num % 2 == 0 for num in my_list)
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert check_even([2, 4, 6]) == True
+assert is_even([]) == True
 # Test case 2:
-assert check_even([1, 2, 3]) == False
+assert is_even([1]) == False
 # Test case 3:
-assert check_even([4, 6, 8]) == True
+assert is_even([2, 4, 6]) == True
+# Test case 4:
+assert is_even([1, 2, 3, 4, 5, 6]) == False
 [/TESTS]
 "
 Write a function that checks if all workers are busy and returns True if some workers are busy.,"[PYTHON]
-def check_if_workers_are_busy(worker_status):
-    return any(worker_status)
+def check_if_workers_are_busy(workers):
+    return any(worker[""status""] == ""Busy"" for worker in workers)
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert check_if_workers_are_busy([True, True, True]) == True
+assert check_if_workers_are_busy([{""name"": ""Alice"", ""status"": ""Busy""}, {""name"": ""Bob"", ""status"": ""Idle""}]) == True
 # Test case 2:
-assert check_if_workers_are_busy([False, False, False]) == False
+assert check_if_workers_are_busy([{""name"": ""Alice"", ""status"": ""Idle""}, {""name"": ""Bob"", ""status"": ""Idle""}]) == False
 # Test case 3:
-assert check_if_workers_are_busy([True, False, True]) == True
-# Test case 4:
-assert check_if_workers_are_busy([True, True, False]) == True
-# Test case 5:
-assert check_if_workers_are_busy([False, False, True]) == True
+assert check_if_workers_are_busy([{""name"": ""Alice"", ""status"": ""Busy""}, {""name"": ""Bob"", ""status"": ""Busy""}]) == True
 [/TESTS]
 "
-Write a function that checks if all books are available and returns True if some books are available.,"
-def check_if_all_books_are_available(books):
-    return any(""Available"" in book for book in books)"
-Write a function that checks if all jobs are open and returns True if some jobs are open.,"```
-def is_open(jobs):
-    return any(job[""status""] == ""Open"" for job in jobs)
+Write a function that checks if all books are available and returns True if some books are available.,"```
+def check_books(books):
+    return any(book[""available""] for book in books)
 ```
-This function uses the `any` function to check if any of the jobs have a status of ""Open"". If at least one job has a status of ""Open"", then the function returns True, otherwise it returns False.
+Explanation:
 
-You can also use a list comprehension instead of a generator expression:
+* `any()` is a built-in Python function that takes an iterable (such as a list or tuple) and returns `True` if any of the elements are true. In this case, we are passing a generator expression to `any()`, which generates a sequence of boolean values based on the availability of each book.
+* The generator expression is equivalent to `book[""available""] for book in books`, where `books` is the list of books and `book[""available""]` is the availability status of each book.
+
+For example, if we have a list of books with their availability statuses as follows:
 ```
-def is_open(jobs):
-    return any([job[""status""] == ""Open"" for job in jobs])
+books = [
+    {""title"": ""Book 1"", ""author"": ""Author 1"", ""available"": True},
+    {""title"": ""Book 2"", ""author"": ""Author 2"", ""available"": False},
+    {""title"": ""Book 3"", ""author"": ""Author 3"", ""available"": True}
+]
 ```
-Both of these functions will work and achieve the same result, but they have different performance characteristics. The first function uses a generator expression, which is more efficient than using a list comprehension because it only needs to iterate over the items in the `jobs` list once. The second function uses a list comprehension, which creates a new list object that contains all of the statuses of the jobs in the `jobs` list. This can be less efficient if the `jobs` list is very large, because it needs to create a new list object and iterate over the entire list twice (once to get the statuses and once to check if any of them are ""Open"")."
+Then, the `check_books(books)` function would return `True`, because at least one book is available."
+Write a function that checks if all jobs are open and returns True if some jobs are open.,"[PYTHON]
+def check_open_jobs(my_list):
+    return any(job == ""Open"" for job in my_list)
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert check_open_jobs([]) == False
+# Test case 2:
+assert check_open_jobs([""Open""]) == True
+# Test case 3:
+assert check_open_jobs([""Open"", ""Closed""]) == True
+# Test case 4:
+assert check_open_jobs([""Closed"", ""Closed""]) == False
+[/TESTS]
+"
 Write a function that checks if all dogs are trained and returns True if some dogs are trained.,"```
 def check_dogs(my_list):
-    return any(""dog"" in x for x in my_list)
+    return any(""trained"" in dog for dog in my_list)
 ```
-Here's an example of how to use this function:
-```
-my_list = [""cat"", ""dog"", ""mouse""]
-print(check_dogs(my_list)) # Output: True
-
-my_list = [""cat"", ""mouse""]
-print(check_dogs(my_list)) # Output: False
-```"
-Write a function that checks if all fruits are fresh and returns True if some fruits are fresh.,"
+This function uses the `any()` function to iterate over the list of dogs and check if ""trained"" is in each dog's name. If any dog is trained, it will return `True`, otherwise it will return `False`."
+Write a function that checks if all fruits are fresh and returns True if some fruits are fresh.,"```
 def check_freshness(fruits):
-    return any(fruit[""fresh""] for fruit in fruits)"
+    return any(""Fresh"" in fruit for fruit in fruits)
+```
+Explanation:
+
+The `any()` function takes an iterable (such as a list or tuple) and returns `True` if any of the elements are truthy. In this case, we are using a generator expression to check if the string ""Fresh"" is present in each fruit. If any fruit has ""Fresh"" in it, the `any()` function will return `True`.
+
+For example:
+```
+fruits = [""Apple"", ""Banana"", ""Orange""]
+print(check_freshness(fruits))  # Output: False
+
+fruits = [""Apple"", ""Fresh Banana"", ""Orange""]
+print(check_freshness(fruits))  # Output: True
+```"
 Write a function that checks if all courses are online and returns True if some courses are online.,"
-def is_all_online(courses):
-    return all(course['type'] == 'online' for course in courses)"
-Write a function that checks if all products are available and returns True if some products are available.,"
+def check_online_courses(courses):
+    return any(""online"" in course for course in courses)"
+Write a function that checks if all products are available and returns True if some products are available.,"```
 def check_products(products):
-    return any(product[""available""] for product in products)"
-Write a function that checks if all people are vaccinated and returns True if some people are vaccinated.,"
-def is_vaccinated(people):
-    return any(person[""is_vaccinated""] for person in people)"
-Write a function that checks if all tickets are sold and returns True if some tickets are sold.,"[PYTHON]
+    return any(product for product in products if product[""available""])
+```
+This function uses the `any` function to iterate over the products and check if any of them have the ""available"" field set to True. If any products are available, it will return True. Otherwise, it will return False."
+Write a function that checks if all people are vaccinated and returns True if some people are vaccinated.,"```
+def check_vaccination(people):
+    return any(person['vaccinated'] for person in people)
+```
+This function uses the `any` function to iterate over the list of people and check if any of them have been vaccinated. If at least one person has been vaccinated, the function returns `True`, otherwise it returns `False`.
+
+Here's an example usage:
+```
+people = [
+    {'name': 'Alice', 'vaccinated': True},
+    {'name': 'Bob', 'vaccinated': False},
+    {'name': 'Charlie', 'vaccinated': True}
+]
+
+print(check_vaccination(people)) # Output: True
+```"
+Write a function that checks if all tickets are sold and returns True if some tickets are sold.,"
 def check_tickets(tickets):
-    return any(ticket for ticket in tickets)
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert check_tickets([]) == False
-# Test case 2:
-assert check_tickets([1, 2, 3]) == True
-# Test case 3:
-assert check_tickets([1, 0, 3]) == True
-[/TESTS]
-"
-Write a function that returns True if the heater is both ON and OFF during the same season.,"[PYTHON]
-def is_heater_on_and_off(season, heater):
-    if heater[season] == ""ON"" and heater[season] == ""OFF"":
-        return True
-    else:
-        return False
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert is_heater_on_and_off(""SPRING"", {""SPRING"": ""ON"", ""SUMMER"": ""OFF""}) == False
-# Test case 2:
-assert is_heater_on_and_off(""SUMMER"", {""SPRING"": ""ON"", ""SUMMER"": ""OFF""}) == True
-# Test case 3:
-assert is_heater_on_and_off(""FALL"", {""SPRING"": ""ON"", ""SUMMER"": ""OFF""}) == False
-[/TESTS]
-"
-Write a function that returns True if the heating system is both ON and OFF during the same period.,"[PYTHON]
-def is_heating_system_both_on_and_off(time_series):
-    on_times = []
-    off_times = []
-    for time, status in time_series:
-        if status == ""ON"":
-            on_times.append(time)
-        elif status == ""OFF"":
-            off_times.append(time)
-    for on_time in on_times:
-        if on_time in off_times:
-            return True
-    return False
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert is_heating_system_both_on_and_off([(""01:00"", ""ON""), (""03:00"", ""OFF"")]) == False
-# Test case 2:
-assert is_heating_system_both_on_and_off([(""01:00"", ""ON""), (""02:00"", ""ON""), (""03:00"", ""OFF"")]) == False
-# Test case 3:
-assert is_heating_system_both_on_and_off([(""01:00"", ""ON""), (""02:00"", ""OFF""), (""03:00"", ""ON"")]) == True
-# Test case 4:
-assert is_heating_system_both_on_and_off([(""01:00"", ""ON""), (""02:00"", ""OFF""), (""03:00"", ""OFF"")]) == False
-# Test case 5:
-assert is_heating_system_both_on_and_off([(""01:00"", ""ON""), (""02:00"", ""ON""), (""03:00"", ""ON""), (""04:00"", ""OFF""), (""05:00"", ""OFF"")]) == True
-[/TESTS]
-"
-Write a function that returns True if the security system is both ARMED during the night and DISARMED during the day.,"
+    return any(ticket for ticket in tickets)"
+Write a function that returns True if the heater is both ON and OFF during the same season.,"```
+def check_heater(season, heater):
+    return (heater['on'][season] and not heater['off'][season]) or (not heater['on'][season] and heater['off'][season])
+```
+This function takes two arguments: `season` which is a string representing the season, and `heater` which is a dictionary containing the heater's state for each season. The function returns `True` if the heater is both ON and OFF during the same season, and `False` otherwise.
+
+The function uses the logical operators `and`, `or`, and `not` to check the conditions. It first checks if the heater is on during the given season by checking if the corresponding value in the `on` dictionary is `True`. It then checks if the heater is off during the same season by checking if the corresponding value in the `off` dictionary is `False`. If both of these conditions are met, it returns `True`, otherwise it returns `False`."
+Write a function that returns True if the heating system is both ON and OFF during the same period.,"
+def check_heating(heating_system):
+    return any(state == ""ON"" and state == ""OFF"" for state in heating_system)"
+Write a function that returns True if the security system is both ARMED during the night and DISARMED during the day.,"```
 def security_system(armed, disarmed):
-    return armed[""night""] and not disarmed[""day""]"
-Write a function that returns True if a traffic light is both RED during rush hour and GREEN during non-rush hour.,"[PYTHON]
-def traffic_light_status(color, rush_hour):
-    if color == ""RED"" and rush_hour:
-        return True
-    return False
+    return armed == 'night' and disarmed == 'day'
+```
+This function takes two boolean values as input: `armed` for whether the system is armed at night, and `disarmed` for whether it is disarmed during the day. It returns a boolean value indicating whether both conditions are met.
+
+For example, if the security system is armed during the night and disarmed during the day, this function would return `True`. If either condition is not met, it would return `False`."
+Write a function that returns True if a traffic light is both RED during rush hour and GREEN during non-rush hour.,"```
+def traffic_light(color):
+    return color == ""RED""
+```"
+Write a function that returns True if the AC is both COOLING during the day and HEATING during the night.,"
+def is_daytime_cooling(ac_state):
+    return ac_state == ""COOLING"" and datetime.now().hour >= 6 and datetime.now().hour < 18"
+Write a function that returns True if the window is both OPEN during the day and CLOSED at night.,"[PYTHON]
+def is_curtains_closed(window):
+    return window == ""OPEN""
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert traffic_light_status(""GREEN"", True) == False
+assert is_curtains_closed(""CLOSED"") == True
 # Test case 2:
-assert traffic_light_status(""RED"", False) == False
-# Test case 3:
-assert traffic_light_status(""RED"", True) == True
+assert is_curtains_closed(""OPEN"") == False
 [/TESTS]
 "
-Write a function that returns True if the AC is both COOLING during the day and HEATING during the night.,"```
-def ac_cooling_and_heating(ac_status, daytime):
-    return ac_status == ""COOLING"" if daytime else ac_status == ""HEATING""
-```
-This function takes two arguments: `ac_status`, which is the current status of the AC system, and `daytime`, which indicates whether it is currently daytime or nighttime. The function returns `True` if the AC is both cooling during the day and heating during the night, and `False` otherwise.
-
-The function uses a ternary expression to check if the AC status is ""COOLING"" during the day and ""HEATING"" during the night. The `daytime` argument is used to determine whether the AC should be cooling or heating, based on the current time of day."
-Write a function that returns True if the window is both OPEN during the day and CLOSED at night.,"```
-def is_open_and_closed(window):
-    return window['OPEN'] == 'True' and window['CLOSED'] == 'False'
-```
-This function checks if the `OPEN` field of the `window` dictionary is set to `'True'` and the `CLOSED` field is set to `'False'`. If both conditions are met, it returns `True`, otherwise it returns `False`.
-
-You can use this function to filter the windows that match the criteria:
-```
-windows = [{'OPEN': 'True', 'CLOSED': 'False'}, {'OPEN': 'False', 'CLOSED': 'True'}]
-open_and_closed_windows = list(filter(is_open_and_closed, windows))
-print(open_and_closed_windows) # Output: [{'OPEN': 'True', 'CLOSED': 'False'}]
-```"
 Write a function that returns True if the fan is both ON during summer and OFF during winter.,"```
-def check_fan(fan, temperature):
-    if fan == ""ON"" and temperature > 25:
+def check_fan(fan, weather):
+    if weather == ""summer"" and fan == ""ON"":
         return True
-    elif fan == ""OFF"" and temperature <= 25:
+    elif weather == ""winter"" and fan == ""OFF"":
         return True
     else:
         return False
 ```
-This function takes two arguments: `fan` which is the current state of the fan, and `temperature` which is the current temperature. It returns `True` if the fan is both ON during summer (i.e., when the temperature is greater than 25) and OFF during winter (i.e., when the temperature is less than or equal to 25).
-
-Here's an example usage of the function:
+This function takes two arguments: `fan`, which is the current state of the fan, and `weather`, which is the current weather. It checks if the fan is on during summer and off during winter, and returns `True` if both conditions are met. If either condition is not met, it returns `False`."
+Write a function that returns True if the lights are both ON during the night and OFF during the day.,"```
+def is_night_light(lights):
+    return all(l == ""ON"" for l in lights)
 ```
-print(check_fan(""ON"", 30)) # True
-print(check_fan(""OFF"", 10)) # False
-```"
-Write a function that returns True if the lights are both ON during the night and OFF during the day.,"
-def light_switch(lights):
-    return all(light == ""ON"" for light in lights)"
+This function will return `True` if all of the lights are set to ""ON"", and `False` otherwise.
+
+For example, if we pass a list of lights with the following states:
+```
+lights = [""OFF"", ""ON"", ""OFF""]
+```
+The function would return `False`, because not all of the lights are set to ""ON"".
+
+If we pass a list of lights with the following states:
+```
+lights = [""ON"", ""ON"", ""ON""]
+```
+The function would return `True`, because all of the lights are set to ""ON""."
 Write a function that returns True if the heater is both HEATING during winter and COOLING during summer.,"
-def is_heating_during_winter_and_cooling_during_summer(weather, temperature):
-    return (weather == ""WINTER"" and temperature > 18) or (weather == ""SUMMER"" and temperature < 26)"
-Write a function that returns True if the fan is both FAST during the day and SLOW during the night.,"
-def is_fan_fast(speed):
-    return speed == ""FAST"""
-Write a function that returns True if the traffic light is RED during rush hour and GREEN during off-peak times.,"
-def is_traffic_light(hour):
-    if (hour >= 7 and hour <= 9) or (hour >= 16 and hour <= 19):
+def heater_check(heater, season):
+    if season == ""winter"" and heater == ""HEATING"":
+        return True
+    elif season == ""summer"" and heater == ""COOLING"":
         return True
     else:
         return False"
-Write a function that returns True if the car engine is ON when the car is moving and OFF when the car is parked.,"```
-def check_car_engine(car):
-    if car['state'] == 'moving' and car['engine'] == 'on':
-        return True
-    elif car['state'] == 'parked' and car['engine'] == 'off':
+Write a function that returns True if the fan is both FAST during the day and SLOW during the night.,"
+def check_fan(fan):
+    return 'FAST' in fan['day'] and 'SLOW' in fan['night']"
+Write a function that returns True if the traffic light is RED during rush hour and GREEN during off-peak times.,"```
+def check_traffic_light(hour, peak):
+    if (hour >= 8 and hour <= 10) or (hour >= 16 and hour <= 19):
         return True
     else:
         return False
 ```
-You can then call this function by passing in a dictionary with the necessary keys, like this:
+This function takes two arguments: `hour` and `peak`. If the current time is between 8am-10am or 4pm-7pm, it will return `True`, indicating that the traffic light is red during rush hour. Otherwise, it will return `False`, indicating that the traffic light is green during off-peak times.
+
+You can use this function to check if the traffic light is red or green based on the current time and whether it's peak or off-peak hours. For example:
 ```
-car = {'state': 'moving', 'engine': 'on'}
-check_car_engine(car)  # returns True
-
-car = {'state': 'parked', 'engine': 'off'}
-check_car_engine(car)  # returns True
-
-car = {'state': 'moving', 'engine': 'off'}
-check_car_engine(car)  # returns False
+print(check_traffic_light(10, True))  # Should print 'True'
+print(check_traffic_light(16, False))  # Should print 'False'
 ```"
-Write a function that returns True if the temperature is both HOT when the air conditioner is off and COLD when the air conditioner is on.,"
-def hot_and_cold(temperature, ac):
-    return (temperature == ""HOT"" and ac == ""OFF"") or (temperature == ""COLD"" and ac == ""ON"")"
-Write a function that returns True if a window is both OPEN when it's daytime and CLOSED when it's nighttime.,"```
-def is_window_closed(window):
-    return window.is_open() and not window.is_nighttime()
+Write a function that returns True if the car engine is ON when the car is moving and OFF when the car is parked.,"```
+def is_car_engine_on(car):
+    if car.state == ""moving"":
+        return car.engine_status == ""on""
+    else:
+        return car.engine_status == ""off""
 ```
-This function uses the `window` object's `is_open()` method to check if the window is open, and the `not window.is_nighttime()` expression to check if it's nighttime. If both conditions are true, the function returns True."
+This function checks the `state` attribute of the `car` object and returns `True` if the engine is on when the car is moving, and `False` otherwise. The `engine_status` attribute is used to determine whether the engine is on or off."
+Write a function that returns True if the temperature is both HOT when the air conditioner is off and COLD when the air conditioner is on.,"```
+def is_hot_and_cold(temperature, ac_status):
+    return (temperature == ""HOT"" and ac_status == ""OFF"") or (temperature == ""COLD"" and ac_status == ""ON"")
+```
+This function takes two arguments: `temperature` which is a string representing the temperature, and `ac_status` which is a string representing the status of the air conditioner. The function returns `True` if the temperature is both HOT when the air conditioner is off and COLD when the air conditioner is on, and `False` otherwise.
+
+For example:
+```
+print(is_hot_and_cold(""HOT"", ""OFF"")) # True
+print(is_hot_and_cold(""COLD"", ""ON"")) # True
+print(is_hot_and_cold(""WARM"", ""OFF"")) # False
+print(is_hot_and_cold(""COOL"", ""ON"")) # False
+```"
+Write a function that returns True if a window is both OPEN when it's daytime and CLOSED when it's nighttime.,"
+def window_status(window):
+    return (window == ""OPEN"" and time_of_day() == ""DAYTIME"") or (window == ""CLOSED"" and time_of_day() == ""NIGHTTIME"")"
 Write a function that returns True if a door is LOCKED at night and UNLOCKED during the day.,"[PYTHON]
 def is_door_locked(time):
     if time < 8 or time > 20:
@@ -476,52 +487,29 @@ assert is_door_locked(0) == True
 assert is_door_locked(12) == False
 # Test case 3:
 assert is_door_locked(23) == True
-[/TESTS]
-"
-Write a function that returns True if a heater is both ON during the winter and OFF during the summer.,"
-def is_winter_heater(is_on, season):
-    return is_on and season == ""winter"""
-Write a function that returns True if a fan is ON when it's summer and OFF when it's winter.,"[PYTHON]
-def is_fan_on(season):
-    if season == ""summer"":
-        return True
-    else:
-        return False
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert is_fan_on(""summer"") == True
-# Test case 2:
-assert is_fan_on(""winter"") == False
-# Test case 3:
-assert is_fan_on(""spring"") == False
 # Test case 4:
-assert is_fan_on(""fall"") == False
+assert is_door_locked(8) == False
+# Test case 5:
+assert is_door_locked(10) == False
 [/TESTS]
 "
-Write a function that returns True if an alarm system is both ARMED when you're at home and DISARMED when you're away.,"[PYTHON]
-def is_alarm_system_secure(armed, disarmed):
-    if armed and not disarmed:
-        return True
-    else:
-        return False
-[/PYTHON]
-[TESTS]
-# Test case 1:
-assert is_alarm_system_secure(True, False) == True
-# Test case 2:
-assert is_alarm_system_secure(False, True) == False
-# Test case 3:
-assert is_alarm_system_secure(True, True) == False
-# Test case 4:
-assert is_alarm_system_secure(False, False) == False
-[/TESTS]
-"
+Write a function that returns True if a heater is both ON during the winter and OFF during the summer.,"```
+def is_valid_heater(heater):
+    return heater[""winter""] == ""ON"" and heater[""summer""] == ""OFF""
+```
+This function takes a dictionary representing a heater as an input, and returns `True` if the heater is both ON during the winter and OFF during the summer. The dictionary should have keys `""winter""` and `""summer""` with values `""ON""` or `""OFF""`."
+Write a function that returns True if a fan is ON when it's summer and OFF when it's winter.,"
+def is_summer(month):
+    return month in range(6, 9)"
+Write a function that returns True if an alarm system is both ARMED when you're at home and DISARMED when you're away.,"
+def check_alarm(armed, disarmed):
+    return armed and not disarmed"
 Write a function that returns True if a security system is ACTIVE during the day and INACTIVE during the night.,"[PYTHON]
 def is_security_system_active(hour):
     if hour > 6 and hour < 18:
         return True
-    return False
+    else:
+        return False
 [/PYTHON]
 [TESTS]
 # Test case 1:
@@ -533,31 +521,45 @@ assert is_security_system_active(8) == True
 [/TESTS]
 "
 Write a function that returns True if the heating system is ON during the cold season and OFF during the warm season.,"```
-def is_heating_system_on(season):
-    return (season == ""cold"")
+def heating_system(season):
+    if season == ""cold"":
+        return True
+    else:
+        return False
 ```
-This function takes a string argument `season` representing the current season, and returns True if the heating system should be ON, or False otherwise. The logic is based on the assumption that the heating system should be OFF during the warm season and ON during the cold season."
-Write a function that returns True if a light is both RED and BLUE at the same time.,"
-def is_light_red_and_blue(light):
-    return ""RED"" in light and ""BLUE"" in light"
+This function takes a string representing the current season as input, and returns `True` if the heating system is on during the cold season (i.e., in the winter months), and `False` otherwise."
+Write a function that returns True if a light is both RED and BLUE at the same time.,"[PYTHON]
+def is_light_both_red_and_blue(light):
+    return ""RED"" in light and ""BLUE"" in light
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert is_light_both_red_and_blue([""RED"", ""BLUE""]) == True
+# Test case 2:
+assert is_light_both_red_and_blue([""RED""]) == False
+# Test case 3:
+assert is_light_both_red_and_blue([""BLUE""]) == False
+# Test case 4:
+assert is_light_both_red_and_blue([""RED"", ""GREEN""]) == False
+# Test case 5:
+assert is_light_both_red_and_blue([]) == False
+[/TESTS]
+"
 Write a function that returns True if the temperature is both HOT and COLD at the same time.,"
-def hot_and_cold(temperature):
-    return 'HOT' in temperature and 'COLD' in temperature"
-Write a function that returns True if a car is both MOVING and PARKED at the same time.,"[PYTHON]
+def temp_paradox(temperature):
+    return ""HOT"" in temperature and ""COLD"" in temperature"
+Write a function that returns True if a car is both MOVING and PARKED at the same time.,"
+[PYTHON]
 def is_moving_and_parked(car):
     return False
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert is_moving_and_parked({'color': 'red', 'maker': 'toyota', 'year': 2015, 'moving': True, 'parked': False}) == False
+assert is_moving_and_parked({'state': 'moving'}) == False
 # Test case 2:
-assert is_moving_and_parked({'color': 'blue', 'maker': 'ford', 'year': 2000, 'moving': False, 'parked': True}) == False
+assert is_moving_and_parked({'state': 'parked'}) == False
 # Test case 3:
-assert is_moving_and_parked({'color': 'green', 'maker': 'hyundai', 'year': 2005, 'moving': True, 'parked': True}) == True
-# Test case 4:
-assert is_moving_and_parked({'color': 'red', 'maker': 'toyota', 'year': 2015, 'moving': False, 'parked': False}) == False
-# Test case 5:
-assert is_moving_and_parked({'color': 'blue', 'maker': 'ford', 'year': 2000, 'moving': True, 'parked': False}) == True
+assert is_moving_and_parked({'state': 'moving', 'position': 0}) == True
 [/TESTS]
 "
 Write a function that returns True if a window is both OPEN and CLOSED at the same time.,"[PYTHON]
@@ -576,23 +578,12 @@ assert window_open_and_closed(""CLOSED"") == False
 [/TESTS]
 "
 Write a function that returns True if a battery is both CHARGED and UNCHARGED at the same time.,"
-def is_battery_charged_and_uncharged(charged, uncharged):
-    return charged and uncharged
-
-# Test case 1:
-assert is_battery_charged_and_uncharged(True, False) == False
-
-# Test case 2:
-assert is_battery_charged_and_uncharged(False, True) == False
-
-# Test case 3:
-assert is_battery_charged_and_uncharged(True, True) == True"
-Write a function that returns True if a door is both OPEN and CLOSED at the same time.,"
-[PYTHON]
+def is_battery_contradictory(charged: bool, uncharged: bool) -> bool:
+    return charged and uncharged"
+Write a function that returns True if a door is both OPEN and CLOSED at the same time.,"[PYTHON]
 def is_door_open_and_closed(door):
     return door == ""OPEN"" and door == ""CLOSED""
 [/PYTHON]
-
 [TESTS]
 # Test case 1:
 assert is_door_open_and_closed(""OPEN"") == False
@@ -605,35 +596,47 @@ assert is_door_open_and_closed(""CLOSED"") == False
 [/TESTS]
 "
 Write a function that returns True if the power is both ON and OFF at the same time.,"[PYTHON]
-def power_paradox(power):
-    return ""ON"" in power and ""OFF"" in power
+def power_on_and_off(power):
+    return any(item in power for item in [""ON"", ""OFF""])
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert power_paradox([""ON"", ""OFF""]) == True
+assert power_on_and_off([""ON"", ""OFF""]) == True
 # Test case 2:
-assert power_paradox([""ON"", ""ON"", ""OFF"", ""OFF""]) == False
+assert power_on_and_off([""ON""]) == False
 # Test case 3:
-assert power_paradox([""ON"", ""OFF"", ""ON"", ""OFF""]) == True
+assert power_on_and_off([""OFF""]) == False
 [/TESTS]
 "
-Write a function that returns True if a traffic light is both RED and GREEN at the same time.,"
-[PYTHON]
+Write a function that returns True if a traffic light is both RED and GREEN at the same time.,"[PYTHON]
 def traffic_light_bug(traffic_light):
-    return traffic_light == ""GREEN"" and traffic_light == ""RED""
+    return False
 [/PYTHON]
 [TESTS]
 # Test case 1:
-assert traffic_light_bug(""GREEN"") == False
+assert traffic_light_bug((""RED"", ""GREEN"")) == True
 # Test case 2:
-assert traffic_light_bug(""RED"") == True
+assert traffic_light_bug((""RED"", ""YELLOW"")) == False
 # Test case 3:
-assert traffic_light_bug(""AMBER"") == False
+assert traffic_light_bug((""RED"", ""RED"")) == False
 [/TESTS]
 "
 Write a function that returns True if the air conditioner is both ON and OFF at the same time.,"
-def ac_both_on_and_off(air_conditioner):
-    return air_conditioner[""power""] == ""ON"" and air_conditioner[""power""] == ""OFF"""
+def ac_contradiction(ac):
+    return ac[""on""] and not ac[""on""]"
 Write a function that returns True if the alarm system is both ARMED and DISARMED at the same time.,"
-def alarm_system(armed, disarmed):
-    return armed and disarmed"
+[PYTHON]
+def alarm_system_status(armed, disarmed):
+    return armed and disarmed
+[/PYTHON]
+[TESTS]
+# Test case 1:
+assert alarm_system_status(True, True) == True
+# Test case 2:
+assert alarm_system_status(False, False) == False
+# Test case 3:
+assert alarm_system_status(True, False) == False
+# Test case 4:
+assert alarm_system_status(False, True) == False
+[/TESTS]
+"
