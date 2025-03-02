@@ -2,9 +2,10 @@ import json
 import pandas as pd
 from langchain_ollama import OllamaLLM
 
-models = ['qwen2.5-coder:3b', 'qwen2.5-coder:latest', 'qwen2.5-coder:14b', 'qwen2.5:3b', 'qwen2.5:7b', 'qwen2.5:14b', 'codellama:13b', 'llama2:latest']
+models = ['qwen2.5-coder:3b', 'qwen2.5-coder:latest', 'qwen2.5-coder:14b', 'qwen2.5:3b', 'qwen2.5:7b', 'qwen2.5:14b', 'codellama:13b', 
+          'llama2:latest', 'deepseek-r1:7b', 'deepseek-coder:6.7b', 'gemma2', 'codegemma']
 
-isZeroShot = False
+isZeroShot = True
 run_status_file_name = "run_status.json"
 
 if isZeroShot == False:

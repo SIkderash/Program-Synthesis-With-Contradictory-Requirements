@@ -6,5 +6,9 @@
     "qwen2.5:7b": 1,
     "qwen2.5:14b": 1,
     "codellama:13b": 1,
-    "llama2:latest": 1
+    "llama2:latest": 1,
+    "deepseek-r1:7b": 1,
+    "deepseek-coder:6.7b": 1,
+    "gemma2": 1,
+    "codegemma": 1
 }

@@ -1,8 +1,8 @@
 import os
 import pandas as pd
 
-folder_path = r"C:/Users/Shanto/Desktop/Merged results"
-updated_folder_path = r"C:/Users/Shanto/Desktop/Final results"
+folder_path = r"Merged results"
+updated_folder_path = r"Final results"
 
 # Ensure output folder exists
 os.makedirs(updated_folder_path, exist_ok=True)

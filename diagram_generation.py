@@ -50,10 +50,10 @@ plt.savefig("Result diagrams/few_shot_accuracy_scatter.png")  # Save the plot
 plt.close()
 
 # Heatmap for Accuracy Comparison
-heatmap_data = df[["Model", "Zero_Shot_Accuracy", "Few_Shot_Accuracy"]].set_index("Model")
-plt.figure(figsize=(8, 6))
-sns.heatmap(heatmap_data, annot=True, cmap="YlGnBu", fmt=".2f")
-plt.title("Accuracy Comparison: Zero Shot vs. Few Shot")
-plt.tight_layout()
-plt.savefig("Result diagrams/accuracy_comparison_heatmap.png")  # Save the plot
-plt.close()
+# heatmap_data = df[["Model", "Zero_Shot_Accuracy", "Few_Shot_Accuracy"]].set_index("Model")
+# plt.figure(figsize=(8, 6))
+# sns.heatmap(heatmap_data, annot=True, cmap="YlGnBu", fmt=".2f")
+# plt.title("Accuracy Comparison: Zero Shot vs. Few Shot")
+# plt.tight_layout()
+# plt.savefig("Result diagrams/accuracy_comparison_heatmap.png")  # Save the plot
+# plt.close()
