@@ -1,0 +1,31 @@
+Query,Type,Subtype
+"Write a Python function to reverse a string. The function must return the string in uppercase and lowercase simultaneously.",Contradictory,Simplex
+"If the input string contains vowels, reverse it. If the input string contains vowels, do not reverse it.",Contrary,Idem
+"If the string length is even, reverse it. If the string contains the letter 'a', reverse it and convert it to uppercase.",Subaltern,Alius
+"Write a Python function to convert a tuple to a list and ensure the output is both mutable and immutable.",Contradictory,Simplex
+"If the tuple contains integers, convert it to a list. If the tuple contains integers, do not convert it to a list.",Contrary,Idem
+"If the tuple has more than 5 elements, convert it to a list. If the tuple contains the number 7, convert it to a list and sort it in descending order.",Subaltern,Alius
+"Write a Python function to calculate the area of a circle. The function must return both the area and the circumference as the same value.",Contradictory,Simplex
+"If the radius is positive, calculate the area of the circle. If the radius is positive, calculate the perimeter of the circle.",Contrary,Idem
+"If the radius is greater than 10, calculate the area. If the radius is even, calculate the circumference.",Subaltern,Alius
+"Write a Python function to check if a number is prime. The function must return True and False simultaneously.",Contradictory,Simplex
+"If the number is even, check if it is prime. If the number is even, check if it is composite.",Contrary,Idem
+"If the number is greater than 100, check if it is prime. If the number is divisible by 3, check if it is a perfect square.",Subaltern,Alius
+"Write a Python function to sort a list in ascending and descending order simultaneously.",Contradictory,Simplex
+"If the list contains integers, sort it in ascending order. If the list contains integers, sort it in descending order.",Contrary,Idem
+"If the list has more than 10 elements, sort it in ascending order. If the list contains negative numbers, sort it in descending order.",Subaltern,Alius
+"Write a Python function to convert a dictionary to a JSON string and ensure the output is both a string and a dictionary.",Contradictory,Simplex
+"If the dictionary has more than 5 keys, convert it to JSON. If the dictionary has more than 5 keys, do not convert it to JSON.",Contrary,Idem
+"If the dictionary contains nested dictionaries, convert it to JSON. If the dictionary contains lists, convert it to JSON and pretty-print it.",Subaltern,Alius
+"Write a Python function to find the shortest path in a graph. The function must return both the shortest path and the longest path as the same result.",Contradictory,Simplex
+"If the graph is directed, find the shortest path. If the graph is directed, find the longest path.",Contrary,Idem
+"If the graph has more than 10 nodes, find the shortest path. If the graph contains cycles, find the longest path.",Subaltern,Alius
+"Write a Python function to read a file and return its contents as both a string and a list of lines simultaneously.",Contradictory,Simplex
+"If the file contains the word 'error', read it as a string. If the file contains the word 'error', read it as a list of lines.",Contrary,Idem
+"If the file size is greater than 1 KB, read it as a string. If the file contains the word 'warning', read it as a list of lines and capitalize each line.",Subaltern,Alius
+"Write a Python function to implement a stack that behaves like a queue and a queue that behaves like a stack.",Contradictory,Simplex
+"If the data structure is a stack, implement it as a queue. If the data structure is a stack, implement it as a stack.",Contrary,Idem
+"If the stack has more than 10 elements, implement it as a queue. If the stack contains integers, implement it as a priority queue.",Subaltern,Alius
+"Write a Python function to multiply two matrices and ensure the output is both a matrix and a scalar value.",Contradictory,Simplex
+"If the matrices are square, multiply them. If the matrices are square, do not multiply them.",Contrary,Idem
+"If the matrices have dimensions greater than 3x3, multiply them. If the matrices contain zeros, multiply them and return the determinant.",Subaltern,Alius

@@ -3,9 +3,9 @@ import pandas as pd
 from langchain_ollama import OllamaLLM
 
 models = ['qwen2.5-coder:3b', 'qwen2.5-coder:latest', 'qwen2.5-coder:14b', 'qwen2.5:3b', 'qwen2.5:7b', 'qwen2.5:14b', 'codellama:13b', 
-          'llama2:latest', 'deepseek-r1:7b', 'deepseek-coder:6.7b', 'gemma2', 'codegemma']
+          'llama2:latest', 'gemma2', 'codegemma'] #'deepseek-r1:7b', 'deepseek-coder:6.7b',
 
-isZeroShot = True
+isZeroShot = False
 run_status_file_name = "run_status.json"
 
 if isZeroShot == False:
@@ -20,7 +20,7 @@ def addSysPrompt(query):
             
             (
             The requirement may or may not be correct, by logical, mathematical or other means. You need to figure out whether it is a contradictory requirement or not. 
-            If it is contradictory, then respond by 'The requirement has contradictions, thus I'm unable to provide a program' and then describe what the contradiction is.'
+            If it is contradictory, then first respond by 'Contradiction Found' and then describe what the contradiction is.'
             Otherwise, if there is no contradiction, just simply provide a program. Below are are some examples for you:
             
             Requirement:
@@ -32,71 +32,22 @@ def addSysPrompt(query):
             Requirement:
             "Write a function that returns True if a light is both RED and BLUE at the same time."
             Response:
-            Contradiction: A light cannot be both RED and BLUE simultaneously. These are mutually exclusive states.
-            Type: Contradictory (mutually exclusive opposites).
-            Subtype: Simplex (no conditions, direct contradiction).
+            Contradiction Found: A light cannot be both RED and BLUE simultaneously. These are mutually exclusive states.
 
             Requirement:
-            "Write a function that returns True if the heater is both ON and OFF during the same season."
+            "Write a function that returns True if the heater is both ON and OFF during the same time."
             Response:
             Contradiction: The heater cannot be both ON and OFF at the same time, even under the same condition (season).
-            Type: Contradictory (mutually exclusive opposites).
-            Subtype: Idem (same condition applied to both states).
 
             Requirement:
             "Write a function that returns True if the traffic light is RED during rush hour and GREEN during off-peak times."
             Response:
-            Contradiction: The traffic light cannot be both RED and GREEN at the same time, even under different conditions (rush hour and off-peak times).
-            Type: Contradictory (mutually exclusive opposites).
-            Subtype: Alius (different conditions applied to both states).
-
-            Requirement:
-            "Write a function that returns True if a car is both MOVING and PARKED at the same time."
-            Response:
-            Contradiction: A car cannot be both MOVING and PARKED simultaneously. These are contrary states.
-            Type: Contrary (mutually inconsistent but not exhaustive).
-            Subtype: Simplex (no conditions, direct contradiction).
-
-            Requirement:
-            "Write a function that returns True if the security system is both ARMED during the night and DISARMED during the day."
-            Response:
-            Contradiction: The security system cannot be both ARMED and DISARMED at the same time, even under the same condition (time of day).
-            Type: Contrary (mutually inconsistent but not exhaustive).
-            Subtype: Idem (same condition applied to both states).
-
-            Requirement:
-            "Write a function that returns True if the AC is both COOLING during the day and HEATING during the night."
-            Response:
-            Contradiction: The AC cannot be both COOLING and HEATING at the same time, even under different conditions (day and night).
-            Type: Contrary (mutually inconsistent but not exhaustive).
-            Subtype: Alius (different conditions applied to both states).
-
-            Requirement:
-            "Write a function that checks if all students in a list have passed and returns True if some students have passed."
-            Response:
-            Contradiction: The universal statement ("all students have passed") is contradicted by the conditional statement ("some students have passed").
-            Type: Subalterns (dependency between universal and conditional statements).
-            Subtype: Simplex (no conditions, direct contradiction).
-
-            Requirement:
-            "Write a function that checks if all numbers are even and returns True if some numbers are even."
-            Response:
-            Contradiction: The universal statement ("all numbers are even") is contradicted by the conditional statement ("some numbers are even").
-            Type: Subalterns (dependency between universal and conditional statements).
-            Subtype: Idem (same condition applied to both statements).
-
-            Requirement:
-            "Write a function that checks if all cars are electric and returns True if some cars are electric but only if they are new."
-            Response:
-            Contradiction: The universal statement ("all cars are electric") is contradicted by the conditional statement ("some cars are electric but only if they are new").
-            Type: Subalterns (dependency between universal and conditional statements).
-            Subtype: Alius (different conditions applied to both statements).
-
-            Requirement:
-            "Write a function that checks if some numbers in a list are even and returns True if at least one number is even, otherwise returns False."
-            Response:
-            def check_some_even(numbers):
-                return any(number % 2 == 0 for number in numbers)
+            def is_correct_traffic_light(color, time_of_day):
+                if time_of_day == "rush_hour":
+                    return color == "RED"
+                elif time_of_day == "off_peak":
+                    return color == "GREEN"
+                return False  # Default case if an unknown condition is provided
             )"""
 
 
@@ -123,7 +74,7 @@ for cur_model in models:
         if isZeroShot == False:
             final_query = addSysPrompt(query) 
         output = model.invoke(final_query)
-        print(output)
+        # print(output)
         
         new_row = pd.DataFrame({'Query': [query], 'Output': [output]})
         output_df = pd.concat([output_df, new_row], ignore_index=True)
